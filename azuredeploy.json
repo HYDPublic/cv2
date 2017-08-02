@@ -14,6 +14,12 @@
             "metadata": {
                 "description": "The location to use for creating the function app and hosting plan. It must be one of the Azure locations that support function apps."
             }
+        },
+        "subscriptionKey": {
+            "type": "string",
+            "metadata": {
+                "description": "Your Subscription Key for Microsoft Cognitive Services, Smart Thumbnails"
+            }
         }
     },
     "variables": {
@@ -54,6 +60,10 @@
                         {
                             "name": "WEBSITE_CONTENTSHARE",
                             "value": "[variables('contentShareName')]"
+                        },
+                        {
+                            "name": "SubscriptionKey",
+                            "value": "[parameters('subscriptionKey')]"
                         },
                         {
                             "name": "Storage",
