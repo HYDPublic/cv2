@@ -1,4 +1,4 @@
-# Cognitive Services: Smart Thumbnails
+# Cognitive Services: Computer Vision API
 
 ## Quick Deploy to Azure
 
