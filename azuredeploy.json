@@ -14,13 +14,6 @@
             "metadata": {
                 "description": "The location to use for creating the function app and hosting plan. It must be one of the Azure locations that support function apps."
             }
-        },
-        "source": {
-            "type": "string",
-            "defaultValue": "images",
-            "metadata": {
-                "description": "Container to upload images into, which will then be processed."
-            }
         }
     },
     "variables": {
