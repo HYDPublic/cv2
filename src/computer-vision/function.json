@@ -10,7 +10,7 @@
         {
             "name": "$return",
             "type": "blob",
-            "path": "destination/{filename}",
+            "path": "destination/cv-{filename}.json",
             "direction": "out",
             "connection": "Storage"
         }
