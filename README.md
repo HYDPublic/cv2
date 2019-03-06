@@ -1,4 +1,4 @@
-# Cognitive Services: Computer Vision API
+# Cognitive Services: Computer Vision Hand Written API
 
 ## Quick Deploy to Azure
 
