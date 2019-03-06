@@ -25,7 +25,7 @@
     "variables": {
         "storageName": "[concat('function', uniqueString(parameters('siteName')))]",
         "contentShareName": "[toLower(parameters('siteName'))]",
-        "repoUrl": "https://github.com/jefking/fn-computer-vision",
+        "repoUrl": "https://github.com/HYDPublic/fn-computer-vision",
         "branch": "master"
     },
     "resources": [
