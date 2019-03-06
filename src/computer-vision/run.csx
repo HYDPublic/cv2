@@ -18,9 +18,9 @@ public async static Task<string> Run(Stream input, string filename, TraceWriter 
     var payload = new ByteArrayContent(array);
     payload.Headers.ContentType = new MediaTypeWithQualityHeaderValue("application/octet-stream");
     
-    var queryParams = "/analyze?visualFeatures=ImageType,Faces,Adult,Categories,Color,Tags,Description&details=Celebrities,Landmarks&language=en";
+    var queryParams = "mode=Handwritten";
     
-    var results = await client.PostAsync(endpoint + queryParams, payload);
+    var results = await client.PostAsync(endpoint +"?" + queryParams, payload);
     
     log.Info("Status code " + results.StatusCode);
 
