@@ -2,6 +2,7 @@
 
 using System.Net.Http.Headers;
 using System.Configuration;
+using System.Threading.Tasks;
 
 private static readonly string key = ConfigurationManager.AppSettings["SubscriptionKey"];
 private static readonly string endpoint = ConfigurationManager.AppSettings["Url"];
@@ -20,16 +21,42 @@ public async static Task<string> Run(Stream input, string filename, TraceWriter 
     
     var queryParams = "mode=Handwritten";
     
-    var results = await client.PostAsync(endpoint +"?" + queryParams, payload);
-    
+    var results = await client.PostAsync(endpoint + "?" + queryParams, payload);
+    string operationLocation;
+    log.Info("url"+ endpoint);
+    log.Info("sentto "+"?"+queryParams);
     log.Info("Status code " + results.StatusCode);
+    log.Info("the key is "+key);
+
+    System.Threading.Thread.Sleep(1000);
+    if(results.IsSuccessStatusCode)
+    {
+        log.Info("all is good");
+        operationLocation = results.Headers.GetValues("Operation-Location").FirstOrDefault();
+        log.Info("op location is " + operationLocation);
+   
+    string contentString;
+    //
+    int i=0;
+    do{
+        System.Threading.Thread.Sleep(1000);
+
+    results = await client.GetAsync(operationLocation);
+    log.Info("status code 2 is "+ results.StatusCode);
+    contentString = await results.Content.ReadAsStringAsync();
+    log.Info("----- " + contentString);
+
 
     var obj = await results.Content.ReadAsAsync<object>();
     var json = Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+ 
+    log.Info($"Results {i} for {filename} : {json}");
+    }
+    while(i<10&& contentString.IndexOf("\"status\":\"Succeeded\"")==-1);
+    return ("w1");
+    }
 
-    log.Info($"Results for {filename} : {json}");
-
-    return json;
+    else return("wonderful");
 }
 
 // Converts a stream to a byte array
