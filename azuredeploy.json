@@ -11,12 +11,12 @@
         "subscriptionKey": {
             "type": "string",
             "metadata": {
-                "description": "Your Subscription Key for Microsoft Cognitive Services, Smart Thumbnails"
+                "description": "Your Subscription Key for Microsoft Cognitive Services, Hand Written"
             }
         },
         "endpoint": {
             "type": "string",
-            "defaultValue": "https://westus.api.cognitive.microsoft.com/vision/v1.0/",
+            "defaultValue": "https://australiaeast.api.cognitive.microsoft.com/vision/v1.0/",
             "metadata": {
                 "description": "Endpoint for Vision API Microsoft Cognitive Services."
             }
@@ -25,7 +25,7 @@
     "variables": {
         "storageName": "[concat('function', uniqueString(parameters('siteName')))]",
         "contentShareName": "[toLower(parameters('siteName'))]",
-        "repoUrl": "https://github.com/HYDPublic/fn-computer-vision",
+        "repoUrl": "https://github.com/HYDPublic/cv2",
         "branch": "master"
     },
     "resources": [
