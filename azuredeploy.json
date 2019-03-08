@@ -16,7 +16,7 @@
         },
         "endpoint": {
             "type": "string",
-            "defaultValue": "https://australiaeast.api.cognitive.microsoft.com/vision/v1.0/",
+            "defaultValue": "https://australiaeast.api.cognitive.microsoft.com/vision/v1.0/recognizeText",
             "metadata": {
                 "description": "Endpoint for Vision API Microsoft Cognitive Services."
             }
